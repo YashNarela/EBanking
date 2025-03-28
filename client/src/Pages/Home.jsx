@@ -18,7 +18,7 @@ const Home = () => {
 
 
 
-            <img src={couple} alt="" />
+            <img  className='homePageImage'   src={couple} alt="" />
 
             <div className='homePageImgDiv'>
 
@@ -65,7 +65,7 @@ const Home = () => {
 
             <div className='homeloginTresaury'  >
 
-              <h4  >Treasury Management Services Login </h4>
+              <h4 className='treasuryheading'   >Treasury Management Services Login </h4>
             </div>
           </div>
 
@@ -98,7 +98,7 @@ const Home = () => {
         <HomeSection4 />
       </div>
 
-      <div>
+      <div className='homeSectionOuterDiv'  >
         <HomeSection5 />
       </div>
 

@@ -6,20 +6,50 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import logo from "../assets/logo.png"
+import "../css/Navbar.css"
+import { IoIosArrowDown } from "react-icons/io";
+
+import Navheader from './Navheader';
+
 
 import { Link } from "react-router"
+import { useState } from 'react';
 const TopNavbar = () => {
 
     let expand = false;
+
+    const [hoverEffect, setHoverEffect] = useState(false)
+
+
+    const handleHover = async () => {
+
+
+        setHoverEffect((prev)=>!prev)
+
+
+   
+
+
+    }
 
 
     return (
         <>
 
 
-            <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3">
+            <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3 ">
                 <Container fluid>
                     <Navbar.Brand href="#"> <img src={logo} alt="" />  </Navbar.Brand>
+
+                    <Nav className="me-auto  " id='navItemsLinks' >
+                        <Nav.Link id='home'  onMouseEnter={handleHover}   onMouseLeave={handleHover}  style={{ color: "#00417c", fontWeight: "800", lineHeight: "1.17", fontSize: "1.125rem" }} as={Link} to="home">Home <IoIosArrowDown /> 
+                            <Navheader hoverEffect={hoverEffect} />
+                        </Nav.Link>
+                        <Nav.Link  id='bussiness'  style={{ color: "#00417c", fontWeight: "800", lineHeight: "1.17", fontSize: "1.125rem" }} as={Link} to="home" >Business  <IoIosArrowDown /> </Nav.Link>
+                        <Nav.Link id='invest'  style={{ color: "#00417c", fontWeight: "800", lineHeight: "1.17", fontSize: "1.125rem" }} as={Link} to="home" >Investing <IoIosArrowDown /> </Nav.Link>
+                        <Nav.Link  id='liberty' style={{ color: "#00417c", fontWeight: "800", lineHeight: "1.17", fontSize: "1.125rem" }} as={Link} to="home" >About Liberty Bank  <IoIosArrowDown /> </Nav.Link>
+                        <Nav.Link  id='navHeaderLoginBtn'  style={{ color: "#00417c", fontWeight: "800", lineHeight: "1.17", fontSize: "1.125rem" }} as={Link} to="home" >  <button className='navHeaderLoginBtn'  >Login</button>  </Nav.Link>
+                    </Nav>
                     <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                     <Navbar.Offcanvas
                         id={`offcanvasNavbar-expand-${expand}`}
@@ -34,11 +64,11 @@ const TopNavbar = () => {
                         <Offcanvas.Body>
                             <Nav className="justify-content-end flex-grow-1 pe-3">
                                 <Nav.Link as={Link} to="/accounttype">Register</Nav.Link>
-                             
-                                <Nav.Link href="#action2">Invest</Nav.Link>
+
+                                <Nav.Link href="#action2">Login</Nav.Link>
                                 <Nav.Link as={Link} to="/home" >Home</Nav.Link>
                                 <NavDropdown
-                                    title="USers"
+                                    title="Users"
                                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                                 >
                                     <NavDropdown.Item href="#action3">Register</NavDropdown.Item>
@@ -65,6 +95,10 @@ const TopNavbar = () => {
                     </Navbar.Offcanvas>
                 </Container>
             </Navbar>
+
+
+          
+
 
 
 

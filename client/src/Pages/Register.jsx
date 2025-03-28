@@ -8,6 +8,8 @@ import { ToastContainer, toast } from 'react-toastify';
 
 import { Await, useNavigate } from "react-router"
 
+import liberty from "../../public/libertyimage.jpg"
+
 import axios from "axios"
 const Register = () => {
 
@@ -84,28 +86,28 @@ const Register = () => {
                 bgclr ?
 
                     <div>
-                        <Form className='CardForm' onSubmit={handleSubmit} >
+                        <Form className='CardForm' onSubmit={handleSubmit} style={{ backgroundImage: `url("/public/an.webp")`, backgroundSize: "cover", backgroundPosition: "center", width:"70%", margin:"auto", padding:"2rem" ,borderRadius:"20px"}}  >
 
 
 
                             <Form.Group controlId="formFile" className="mb-3">
                                 <Form.Label>Profile Image</Form.Label>
-                                <Form.Control type="file" name='images' onChange={handleImage} />
+                                <Form.Control style={{ background: "transparent" }}   type="file" name='images' onChange={handleImage} />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>First Name</Form.Label>
-                                <Form.Control type="text" name='frstname' placeholder="FirstName" onChange={handleData} />
+                                <Form.Control style={{ background: "transparent" }}   type="text" name='frstname' placeholder="FirstName" onChange={handleData} />
                             </Form.Group>
 
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>Last Name</Form.Label>
-                                <Form.Control type="text" name='lastname' placeholder="Last Name" onChange={handleData} />
+                                <Form.Control style={{ background: "transparent" }}   type="text" name='lastname' placeholder="Last Name" onChange={handleData} />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" name='email' placeholder="Enter email" onChange={handleData} />
+                                <Form.Control style={{ background: "transparent" }}   type="email" name='email' placeholder="Enter email" onChange={handleData} />
                                 <Form.Text className="text-muted">
                                     We'll never share your email with anyone else.
                                 </Form.Text>
@@ -137,46 +139,46 @@ const Register = () => {
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" name='password' placeholder="Password" onChange={handleData} />
+                                <Form.Control style={{ background: "transparent" }}   type="password" name='password' placeholder="Password" onChange={handleData} />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>Confirm Password</Form.Label>
-                                <Form.Control type="password" name='cnfpassword' placeholder="Password" onChange={handleData} />
+                                <Form.Control style={{ background: "transparent" }}   type="password" name='cnfpassword' placeholder="Password" onChange={handleData} />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>Dob</Form.Label>
-                                <Form.Control type="date" name='date' placeholder="Date" onChange={handleData} />
+                                <Form.Control style={{ background: "transparent" }}   type="date" name='date' placeholder="Date" onChange={handleData} />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>Address</Form.Label>
-                                <Form.Control type="text" name='address' placeholder="Address" onChange={handleData} />
+                                <Form.Control style={{ background: "transparent" }}   type="text" name='address' placeholder="Address" onChange={handleData} />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>Enter Gov Id</Form.Label>
-                                <Form.Control type="text" name='govid' placeholder=" Eg Adhar Number , Pan Card Number" onChange={handleData} />
+                                <Form.Control style={{ background: "transparent" }}   type="text" name='govid' placeholder=" Eg Adhar Number , Pan Card Number" onChange={handleData} />
                             </Form.Group>
 
                             <Form.Group controlId="formFile" className="mb-3">
                                 <Form.Label>Upload Adhar Card</Form.Label>
-                                <Form.Control type="file" name='adharfile' onChange={handleImage} />
+                                <Form.Control style={{ background: "transparent" }}   type="file" name='adharfile' onChange={handleImage} />
                             </Form.Group>
 
 
                             <Form.Group controlId="formFile" className="mb-3">
                                 <Form.Label>Upload Signature</Form.Label>
-                                <Form.Control type="file" name='signfile' onChange={handleImage} />
+                                <Form.Control   type="file" style={{background:"transparent"}}   name='signfile' onChange={handleImage} />
                             </Form.Group>
 
 
                             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                 <Form.Check type="checkbox" label=" Agree Terms & Condition" name='chk' onChange={handleData} />
                             </Form.Group>
-                            <Button variant="primary" type="submit">
+                            <button className='navHeaderLoginBtn' type="submit">
                                 Register
-                            </Button>
+                            </button>
                         </Form>
 
                        

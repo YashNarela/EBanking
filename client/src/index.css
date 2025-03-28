@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Nova+Mono&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 * {
-  font-family: forma-djr-deck, sans-serif !important;
+  font-family: "Crimson Text", serif;
 }
 
 body {
@@ -31,7 +33,7 @@ body {
 
   height: 400px;
 
-  bottom: -40%;
+  bottom: -31%;
   position: absolute;
 
   z-index: 23;
@@ -102,11 +104,17 @@ body {
 h4 {
   color: #fff;
   text-decoration: underline;
-  font-size: 1.125rem;
+  font-size: 16px;
   letter-spacing: 0.05em;
-  padding: 1.4375rem 1rem 1.4375rem 2.5625rem;
+  /* padding: 0.4375rem 1rem 0.4375rem 1.5625rem; */
+  padding: 0.5rem 0px;
   background-color: #00497e;
   cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+  display: contents;
+  justify-content: center;
+  display: flex;
 }
 
 .homePageImgDivInsideTwoPara {
@@ -153,7 +161,7 @@ h4 {
 .homyOneMainDiv {
   display: flex;
 
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   border-top: solid 1px #e2e2e2;
 }
@@ -180,9 +188,12 @@ h4 {
   margin-right: 2rem;
   padding: 50px 64px;
   box-shadow: 0 4px 60px 0px rgba(0, 0, 0, 0.07);
+  position: relative;
 }
 
 .homeSection3MainDivTwo {
+  position: relative;
+  top: 140px;
 }
 
 .homeSection3MainDivImage {
@@ -218,35 +229,213 @@ h4 {
   padding-right: 0.75rem;
 }
 
-
-.homySection5Main{
-border: solid 4px #d5efff;
-display: flex;
-align-items: center;
-justify-content: center;
-
+.homySection5Main {
+  border: solid 4px #d5efff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  position: relative;
+  padding: 3rem;
 }
 
-
-.homySection5MainOne{
-
-
-
+.homySection5MainOne {
 }
 
-.homySection5MainTwo{
-
-  width: 353px;
+.homePageImage {
 }
-.homySection5MainTwoImg{
+
+@media (max-width: 1420px) {
+  .homePageLogin {
+    display: none;
+  }
+
+  .homePageImg {
+    width: 100%;
+  }
+
+  .homePageImage {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1132px) {
+  .homePageImage {
+    /* max-width: 768px; */
+    width: 100%;
+  }
+
+  .homeSection3MainDivImage {
+    width: 430px;
+  }
+
+  .homeSection3MainDivTwo {
+    position: absolute;
+    top: 320px;
+    right: 0;
+  }
+
+  .homeSection3Main {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 805px) {
+  .homePageImage {
+    /* max-width: 438px; */
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .homePageImgDiv {
+    width: 100%;
+    position: static;
+  }
+
+  .homeSectionFourMainDiv {
+    margin-top: 12rem;
+  }
+
+  .homyTwoMainTwoPara{
+    font-size: 18px;
+  }
+  .homytwoMainOneText{
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .homeSection3MainDivImage {
+    width: 330px;
+  }
+
+  .homytwoMain {
+    flex-direction: column;
+  }
+
+  .homePageImgDivInsideOne {
+    display: none;
+  }
+
+  .heightGap {
+    height: 1rem;
+  }
+}
+
+@media screen and (max-width: 526px) {
+  .homeSection3MainDivImage {
+    width: 230px;
+  }
+
+  .homeSection3MainDivTwo {
+    top: 420px;
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 421px) {
+  .homeSection3MainDivTwo {
+    top: 443px;
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 714px) {
+  .homeSection4PartOne {
+    display: none;
+  }
+
+  .homeSection4PartTwoFlexi {
+    gap: 0rem;
+    flex-direction: column;
+  }
+
+  .homePageImgDivBtn {
+    font-size: 0.9375rem;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: normal;
+    line-height: 1.27;
+    text-align: left;
+    padding: 0.29375rem 1.21875rem;
+  }
+
+  .homeSectionFourMainDiv {
+    justify-content: flex-start;
+  }
+}
+
+.treasuryheading {
+  font-size: 16px;
+}
+
+.homeSectionOuterDiv {
+  margin-top: 6rem;
+  margin-bottom: 12rem;
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
+.homySecFive {
+  border-radius: 1.75rem;
+  min-width: 768px;
+}
+
+.homySection5MainTwo {
+  width: 353px;
+  position: absolute;
+
+  top: 144px;
+
+  right: -120px;
+}
+.homySection5MainTwoImg {
+  width: 100%;
+  border-radius: 1.75rem;
+}
+
+.homePageImgDivInsideTwoPara {
+  text-align: justify;
+}
+
+@media screen and (max-width: 1048px) {
+  .homySecFive {
+    max-width: 768px;
+  }
+
+  .homySection5MainTwo {
+    right: -52px;
+  }
+}
+
+@media screen and (max-width: 874px) {
+  .homySection5MainTwo {
+    width: 253px;
+  }
+
+  .homySecFive {
+    min-width: 430px;
+  }
+}
+
+@media screen and (max-width: 572px) {
+  .homySection5MainTwo {
+    right: 67px;
+    top: 186px;
+  }
+}
+
 .logoIconsBank {
   font-size: 2.1875rem;
 }
 
 .loginForm {
-  width: 60%;
+  width: 78%;
+  margin: auto;
+  padding: 2rem;
+  background-color: #d2ebfb;
+  border-radius: 20px;
 }
 
 .btnBox {
@@ -264,8 +453,8 @@ justify-content: center;
 }
 
 .accountTypeCardDiv {
-  width: 80%;
-  height: 60vh;
+  width: 998px;
+  height: 540px;
   border: 1px solid rgba(0, 0, 0, 0.2);
 
   margin: auto;
@@ -276,6 +465,48 @@ justify-content: center;
   box-shadow: 0px 2px 5px 3px rgba(0, 0, 0, 0.2);
 }
 
+#hknw{
+
+ font-weight: 800;
+ font-size: 16px;
+ padding: 1rem;
+
+}  
+
+@media screen and ( max-width:480px) {
+
+  .accountTypeCardDiv{
+    overflow-x: hidden;
+  }
+#hknw{
+
+  padding: 3rem;
+}  
+
+}
+
+
+
+
+@media screen and ( max-width:1080px) {
+
+  .accountTypeCardDiv{
+
+    width: 80%;
+
+  }
+  
+}
+
+@media screen and ( max-width:888px) {
+
+
+  .ModalBody{
+
+    flex-direction: column;
+  }
+  
+}
 .ModalBody {
   display: flex;
   gap: 5rem;
@@ -284,9 +515,10 @@ justify-content: center;
 }
 
 .ActTypCard {
+  transition: all 0.3s ease-in;
 }
 .ActTypCard:hover {
-  scale: 1.2;
+  scale: 1.01;
   box-shadow: 3px 4px 3px silver;
 }
 
@@ -320,9 +552,11 @@ justify-content: center;
 }
 
 /* Logo */
+
 .lp-footer__image img {
   max-width: 180px;
   height: auto;
+  margin-bottom: 1rem;
 }
 
 /* Footer Links */
@@ -352,6 +586,9 @@ justify-content: center;
   justify-content: space-between;
   align-items: center;
   margin-top: 15px;
+
+  gap: 1rem;
+  padding-top: 1rem;
 }
 
 .lp-footer__social a {
@@ -501,4 +738,9 @@ a {
   to {
     transform: rotate(360deg);
   }
+}
+
+.accountTypeCardDivInternalBody {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }

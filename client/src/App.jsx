@@ -10,6 +10,7 @@ import Login from './Pages/Login';
 import Logout from './Pages/Logout';
 import Register from './Pages/Register';
 import AccountType from './Pages/AccountType';
+import PageAfterLogin from './Pages/MainPage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -33,6 +34,7 @@ function App() {
             <Route path='register' element={<Register />} />
             <Route path='accounttype' element={<AccountType />} />
 
+            <Route path='userpage' element={<PageAfterLogin />} />
 
 
           </Route>

@@ -4,7 +4,7 @@ const HomeSection5 = () => {
     return (
 
 
-        <div>
+        <div className='homySecFive' >
               
 
               <div  className='homySection5Main' >  
@@ -23,7 +23,7 @@ const HomeSection5 = () => {
                         </p>
                          </div>
                          <div>
-                        <button>View Locations</button>
+                        <button className='navHeaderLoginBtn'   >View Locations</button>
                          </div>
  
 

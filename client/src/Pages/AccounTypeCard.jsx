@@ -14,7 +14,7 @@ const AccounTypeCard = ({ acctp, navi }) => {
 
                     <Card.Text>
 
-                        <h3>
+                        <h3 style={{fontWeight:"800", fontSize:"16px"}} >
                             Register my individual account <FaUser />
                         </h3>
 

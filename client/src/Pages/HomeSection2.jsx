@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { AiOutlineHome } from "react-icons/ai";
 import { TbPigMoney } from "react-icons/tb";
 import { CiBadgeDollar } from "react-icons/ci";
 import { GrNotes } from "react-icons/gr";
 const HomeSection2 = () => {
+
+
+    const [data,setData]=useState(null)
+
     return (
         <div>
 
@@ -63,6 +67,11 @@ const HomeSection2 = () => {
                         <div className='homytwoMainOneText' >
                             Get the funds I need, fast
                         </div>
+
+
+                           
+
+
                     </div>
                     <div className='homyOneMainDiv'  >
 

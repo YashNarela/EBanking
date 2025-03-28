@@ -1,0 +1,137 @@
+.NavContain {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbarTags {
+  font-size: 1.125rem;
+  line-height: 1.17;
+  font-weight: 600;
+  color: #00417c;
+}
+
+#navItemsLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  width: 80%;
+  gap: 1rem;
+}
+
+#navHeaderLoginBtn{
+
+  display: none;
+
+
+
+}
+
+
+.navHeaderLoginBtn{
+
+
+      font-size: .9375rem;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: normal;
+    line-height: 1.27;
+    text-align: left;
+    padding: .29375rem 1.21875rem;
+    background-color: #d12215;
+    color: #fff;
+    border-color: #d12215;
+}
+
+
+@media screen and (max-width:1300px) {
+
+  #navItemsLinks {
+
+    width: 77%;
+  }
+  
+}
+
+@media screen and ( max-width:1080px) {
+  
+
+    #navItemsLinks {
+
+    width: 70%;
+  }
+
+
+}
+
+@media screen and ( max-width:836px) {
+  
+
+    #home{
+      display: none;
+    }
+    #bussiness{
+       display: none;
+    }
+
+    #liberty{
+      display: none;
+    }
+    #invest{
+      display: none;
+    }
+
+    #navHeaderLoginBtn{
+
+
+
+
+
+
+    }
+
+
+    #navItemsLinks {
+
+    width: 62%;
+  }
+
+
+}
+
+@media screen and ( max-width:669px){
+
+
+     #navItemsLinks {
+
+    width: 52%;
+  }
+}
+
+@media screen and ( max-width:502px){
+
+
+     #navItemsLinks {
+
+    width: 42%;
+  }
+}
+@media screen and ( max-width:435px){
+
+
+     #navItemsLinks {
+
+    width: 32%;
+  }
+}
+
+
+@media screen and (max-width: 1420px) {
+  #navItemsLinks {
+    /* width: 65%; */
+  }
+
+  #navHeaderLoginBtn{
+    display: flex;
+  }
+}

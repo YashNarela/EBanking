@@ -1,0 +1,411 @@
+.MainDivAccountSc {
+  position: relative;
+}
+
+header {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 1080px;
+  background: #1c1c25;
+  padding-top: 1.5rem;
+}
+
+header::before {
+  content: "";
+
+  position: absolute;
+  /* bottom: -35%; */
+  top: 95px;
+  width: 294px;
+  left: 19%;
+  height: 300px;
+
+  background: linear-gradient(rgba(3, 125, 255), rgb(179, 3, 255));
+  border-radius: 50%;
+}
+
+.card {
+  position: relative;
+
+  width: 500px;
+  height: 314px;
+  transform-style: preserve-3d;
+  perspective: 500px;
+}
+
+.card .face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 290px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  background: linear-gradient(rgba(3, 255, 154), rgb(3, 167, 255));
+  backdrop-filter: blur(10px);
+
+  transform-style: preserve-3d;
+
+  transition: 1s;
+  backface-visibility: hidden;
+}
+
+.card :hover .face .face.front {
+  transform: rotateY(180deg);
+}
+
+.card .face.back {
+  transform: rotateY(180deg);
+}
+
+.card:hover .face.back {
+  transform: rotateY(360deg);
+}
+
+.card .face.front::before {
+  content: "";
+
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  background: rgb(243, 150, 10);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.card .face.front::after {
+  content: "";
+
+  position: absolute;
+  bottom: 40px;
+  right: 80px;
+  width: 60px;
+  height: 60px;
+  background: rgb(221, 161, 11);
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+.card .face.front .debit {
+  position: absolute;
+  left: 40px;
+  top: 30px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.card .face.front .bank {
+  position: absolute;
+  right: 40px;
+  top: 25px;
+  color: #fff;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 24px;
+}
+
+.card .face.front .chip {
+  position: absolute;
+  left: 50px;
+  top: 80px;
+  max-width: 64px;
+  color: #fff;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.card .face.front .number {
+  position: absolute;
+  bottom: 13px;
+  left: 40px;
+  color: #fff;
+  font-weight: 500;
+
+  letter-spacing: 6px;
+  font-size: 18px;
+  text-shadow: 0px 2px 1px #0005;
+}
+
+.card .face.front .valid {
+  position: absolute;
+  bottom: 90px;
+  left: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 300px;
+  line-height: 1em;
+  text-align: center;
+}
+
+.card .face.front .valid span:last-child {
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.card .face.front .cardholder {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  color: #fff;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.card .face.back .blackbar {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  height: 60px;
+  background: #000;
+}
+
+.card .face.back .cvvtext {
+  position: absolute;
+  top: 120px;
+  left: 30px;
+}
+
+.card .face.back .cvvtext h5 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.card .face.back .cvvtext .whitebar {
+  position: relative;
+  width: 400px;
+  height: 40px;
+  background: #fff;
+  margin-top: 5px;
+}
+
+.card .face.back .cvvtext .cvv {
+  position: relative;
+  background: #fff;
+  color: #111;
+  width: 50px;
+  height: 30px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  display: flex;
+  justify-content: center;
+}
+
+.card .face.back .text {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  color: #fff;
+  font-size: 10px;
+  line-height: 1.4em;
+  font-weight: 300;
+}
+
+.iconsbox {
+  position: absolute;
+  color: white;
+  background: #09090a;
+
+  border-radius: 15px 50px;
+  margin: auto;
+  width: 80%;
+
+  bottom: 42%;
+  right: 9%;
+
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.iconFlexCol {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.iconboxSIzeIcon {
+  font-size: 45px;
+}
+
+.iconboxSIzeIcon:hover {
+  box-shadow: #fff 2px 5px 22px;
+}
+
+.iconBoxH4 {
+  width: max-content;
+
+  font-style: italic;
+  text-decoration: none;
+  background: #171915;
+}
+
+.iconFullBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  cursor: pointer;
+}
+
+.AcctBalance {
+}
+
+.AcctBalanceCard {
+}
+
+.AcctBalanceWindow {
+  width: 430px;
+  border: 1px solid yellowgreen;
+  height: 230px;
+  position: absolute;
+  left: 40%;
+  bottom: 13%;
+  background: #fff;
+  text-align: center;
+  padding-top: 2rem;
+  border-radius: 15px 50px 30px;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: unset;
+  align-items: baseline;
+
+  padding-left: 4rem;
+}
+
+.AcctBalanceWindowBtn {
+  border-radius: 12px;
+}
+
+.crossBox {
+  margin-right: 2rem;
+  border: 1px solid;
+  padding: 1rem;
+  font-weight: bolder;
+  cursor: pointer;
+  background: black;
+  color: white;
+}
+
+.accountBalaanceCard {
+  position: absolute;
+  left: 40%;
+  bottom: 13%;
+  height: 230px;
+}
+
+.accountBalaanceCardOuter {
+  width: 340px;
+  height: 230px;
+  background: #dcd7d7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+}
+
+.accountBalaanceBalanceShow {
+  width: 70px;
+  height: 70px;
+  background: aliceblue;
+}
+
+.crossBoxpara {
+  background-color: #000;
+
+  color: #fff;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 25px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.userInfoAccDetailsOuterDiv {
+  position: absolute;
+  left: 40%;
+  bottom: 10%;
+}
+
+.userInfoInsideDiv {
+  padding: 3rem;
+
+  width: 520px;
+  height: 220px;
+  background: #fff;
+}
+
+.AcNo {
+  font-weight: 800;
+}
+
+.AcNoOuterDiv {
+}
+
+.AcIfsc {
+}
+
+.crossuserInfo {
+  background-color: #000;
+
+  color: #fff;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 25px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.AcBranch {
+}
+
+.trnsInner {
+}
+
+.trnsOuter {
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+  width: 81%;
+}
+
+.trfouterDiv {
+  position: absolute;
+  left: 36%;
+  bottom: 10%;
+  width: 81%;
+}
+
+.trfInnerDiv {
+  width: 430px;
+  height: 320px;
+  background: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem;
+  gap: 1rem;
+}
