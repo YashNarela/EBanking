@@ -66,6 +66,8 @@ const Register = () => {
 
               await  toast.success(rspData.data.success)
 
+             
+
             setBgclr(true)
           
 

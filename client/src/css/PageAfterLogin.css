@@ -231,6 +231,7 @@ header::before {
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .iconFlexCol {
@@ -254,6 +255,26 @@ header::before {
   text-decoration: none;
   background: #171915;
 }
+
+
+
+@media screen and (max-width:840px) {
+  
+.iconboxSIzeIcon{
+
+  font-size: 19px;
+}
+.iconBoxH4{
+
+  font-size: 16px;
+}
+
+}
+
+
+
+
+
 
 .iconFullBox {
   display: flex;
@@ -290,6 +311,53 @@ header::before {
   padding-left: 4rem;
 }
 
+
+.userInfoAccDetailsOuterDiv {
+  position: absolute;
+  left: 40%;
+  bottom: 10%;
+}
+
+
+
+@media screen and (max-width: 1048px) {
+  .iconsbox {
+    bottom: 34%;
+  }
+
+  .AcctBalanceWindow {
+    left: 30%;
+    bottom: 5%;
+  }
+
+  .userInfoAccDetailsOuterDiv{
+    left: 30%;
+    bottom: 5%;
+  }
+
+  .userInfoInsideDiv{
+    width: 303px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .AcctBalanceWindow {
+    left: 13%;
+
+    bottom: 9%;
+  }
+
+  .AcctBalanceWindow {
+    width: 320px;
+  }
+
+  .userInfoAccDetailsOuterDiv {
+    left: 13%;
+
+    bottom: 9%;
+  }
+}
+
 .AcctBalanceWindowBtn {
   border-radius: 12px;
 }
@@ -313,7 +381,7 @@ header::before {
 
 .accountBalaanceCardOuter {
   width: 340px;
-  height: 230px;
+
   background: #dcd7d7;
   display: flex;
   flex-direction: column;
@@ -326,6 +394,15 @@ header::before {
   width: 70px;
   height: 70px;
   background: aliceblue;
+
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  font-weight: 900;
+  border-radius: 10px;
+  width: max-content;
 }
 
 .crossBoxpara {
@@ -341,11 +418,7 @@ header::before {
   cursor: pointer;
 }
 
-.userInfoAccDetailsOuterDiv {
-  position: absolute;
-  left: 40%;
-  bottom: 10%;
-}
+
 
 .userInfoInsideDiv {
   padding: 3rem;
@@ -395,7 +468,7 @@ header::before {
   position: absolute;
   left: 36%;
   bottom: 10%;
-  width: 81%;
+
 }
 
 .trfInnerDiv {

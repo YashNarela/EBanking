@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import "../css/PageAfterLogin.css"
 
@@ -6,116 +6,84 @@ import chip from "../assets/chip.png"
 
 import axios from 'axios'
 
-import balance from "../assets/balance.jpg"
-import Table from 'react-bootstrap/Table';
+import { FaUserCircle } from "react-icons/fa";
 import { MdAccountBalance } from "react-icons/md";
+import { SiMoneygram } from "react-icons/si";
 import { FaRupeeSign } from "react-icons/fa";
 import { TbTransfer } from "react-icons/tb";
 import { FaMoneyCheck } from "react-icons/fa";
+import { Outlet, useNavigate } from 'react-router'
+
+import { useSelector, useDispatch } from 'react-redux'
+
+import { setRspObj } from '../redux/AccSlice'
 
 
 const PageAfterLogin = () => {
 
-  const [accountblc, setAccountblc] = useState(false)
-
-  const [pinScreen, setPinScreen] = useState(false)
-
-  const [pinhandle, setPinhandle] = useState("")
-
-
-  const [userDetails, setUserDetails] = useState(false)
-
-
-  const [trans, setTrans] = useState(false)
-
-  const [trf, setTrf] = useState(false)
-
-  const [trfvalue, setTrfValue] = useState({})
+  const navigate = useNavigate()
 
 
 
+  const rspObj = useSelector((state) => state.Acc.rspObj)
 
-  async function TrfValueHandle(e) {
-
-
-    const { name, value } = e.target;
-
-    console.log(trfvalue);
+  const dispatch = useDispatch()
 
 
+  useEffect(() => {
 
-    setTrfValue((prev) => ({ ...prev, [name]: value }))
+
+    UserAuth()
 
 
 
-  }
-
-  async function PayHandle(e) {
+  }, [])
 
 
-    e.preventDefault();
-
-    try {
-
-    console.log(trfvalue);
-    
-
-    } catch (error) {
-
-
-
-
-    }
-  }
-
-
-
-  async function UserAccountInfo() {
+  async function UserAuth() {
 
 
     try {
+
+      let token = JSON.parse(localStorage.getItem("token"))
+
+      if (!token) {
+
+
+        navigate("/login")
+
+      }
+
+      console.log(token);
+
+
+
+
+      let api = `http://localhost:8000/bank/auth/?token=${token}`
+
+
+      let rspdata = await axios.post(api, null, { headers: { "token": token } })
+
+
+      console.log(rspdata.data.rsp);
+
+      dispatch(setRspObj(rspdata.data.rsp))
+
+
 
 
 
     } catch (error) {
 
 
+      console.log(error);
 
     }
 
-
   }
 
 
 
-
-  async function BalanceChck() {
-
-    setAccountblc(prev => !prev)
-
-  }
-
-
-  async function SubmitHandler(e) {
-
-
-    e.preventDefault()
-
-    console.log(pinhandle);
-
-
-    setAccountblc((prev) => !prev)
-
-    setPinScreen((prev) => !prev)
-
-    try {
-
-
-
-    } catch (error) {
-
-    }
-  }
 
   return (
     <div className='MainDivAccountSc' >
@@ -146,7 +114,7 @@ const PageAfterLogin = () => {
 
             <img src={chip} alt="" className='chip' />
 
-            <h3 className='number' >012130401</h3>
+            <h3 className='number' >{rspObj.accno}</h3>
 
             <h3 className='valid' > valid <br />
 
@@ -156,7 +124,8 @@ const PageAfterLogin = () => {
             </h3>
 
             <h5 className='cardholder' >
-              yash Bro
+          
+              {rspObj.frstname + rspObj.lastname}
             </h5>
 
           </div>
@@ -172,7 +141,7 @@ const PageAfterLogin = () => {
               <h5>Authorized Signature not valid unless  signed</h5>
 
               <div className="whitebar"></div>
-              <div className="cvv">123</div>
+              <div className="cvv">{rspObj.pin}</div>
 
             </div>
 
@@ -194,13 +163,13 @@ const PageAfterLogin = () => {
 
         <div className='iconFlexCol' >
           <div className='iconFullBox' >
-            <MdAccountBalance onClick={BalanceChck} className=' iconboxSIzeIcon' />
+            <MdAccountBalance onClick={() => navigate("/userpage/balance")} className=' iconboxSIzeIcon' />
             <h4 className='iconBoxH4' >Check Bank Balance</h4>
           </div>
 
 
           <div className='iconFullBox'  >
-            <FaMoneyCheck onClick={() => { setUserDetails(prev => !prev) }} className=' iconboxSIzeIcon' />
+            <FaMoneyCheck onClick={() => { navigate("/userpage/account") }} className=' iconboxSIzeIcon' />
             <h4 className='iconBoxH4' >Account Details</h4>
           </div>
 
@@ -212,14 +181,24 @@ const PageAfterLogin = () => {
           <div className='iconFullBox' >
             <FaRupeeSign onClick={() => {
 
-              setTrans(prev => !prev)
+              navigate('/userpage/trans')
             }} className=' iconboxSIzeIcon' />
-            <h4 className='iconBoxH4' > Transcition History</h4>
+            <h4 className='iconBoxH4' >  transaction History</h4>
 
           </div>
           <div className='iconFullBox' >
-            <TbTransfer onClick={() => { setTrf(prev => !prev) }} className=' iconboxSIzeIcon' />
+            <TbTransfer onClick={() => { navigate('/userpage/transfer') }} className=' iconboxSIzeIcon' />
             <h4 className='iconBoxH4' > transfer Money </h4>
+
+          </div>
+          <div className='iconFullBox' >
+            <SiMoneygram onClick={() => { navigate('/userpage/addmoney') }} className=' iconboxSIzeIcon' />
+            <h4 className='iconBoxH4' > Add Money </h4>
+
+          </div>
+          <div className='iconFullBox' >
+            <FaUserCircle onClick={() => { navigate('/userpage/userinfo') }} className=' iconboxSIzeIcon' />
+            <h4 className='iconBoxH4' > User Info </h4>
 
           </div>
 
@@ -231,273 +210,7 @@ const PageAfterLogin = () => {
       </div>
 
 
-      <div className='AcctBalance' >
-
-
-        {
-
-          accountblc ? (<>
-
-            <div className='AcctBalanceCard' >
-
-
-              <div className='AcctBalanceWindow' >
-
-
-                <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }} >
-                  <p>Enter 4 digit pin</p>
-
-                  <div className='crossBox' onClick={() => { setAccountblc((prev) => !prev) }} >
-                    X
-                  </div>
-                </div>
-
-                <input type="text" placeholder='Enter Pin' onChange={(e) => { setPinhandle(e.target.value) }} />
-                <br />
-
-                <p style={{ cursor: "pointer" }} >Reset Pin ?</p>
-
-                <button id='AcctBalanceWindowBtn' onClick={SubmitHandler} >Submit</button>
-
-
-
-              </div>
-
-            </div>
-
-
-
-          </>) : (<>
-
-
-
-            {
-
-              !accountblc && pinScreen ? (
-                <>
-
-
-                  <div className='accountBalaanceCard' >
-
-
-                    <p className='crossBoxpara' onClick={() => { setPinScreen(prev => !prev) }}  > x  </p>
-
-                    <div className='accountBalaanceCardOuter'>
-
-
-                      <img src={balance} width="90px" style={{ borderRadius: "50%" }} alt="" />
-
-                      <br />
-
-
-                      <div className='accountBalaanceBalanceShow' >
-
-                      </div>
-
-
-                    </div>
-
-
-
-                  </div>
-
-
-
-                </>
-
-
-              ) : (
-                <>
-
-                </>
-              )
-
-            }
-
-
-
-          </>)
-
-        }
-
-
-      </div>
-
-
-
-
-
-
-
-      {
-
-
-        userDetails ? (
-
-          <>
-            <div className='userInfoAccDetailsOuterDiv' >
-
-              <p className='crossBoxpara' onClick={() => { setUserDetails(prev => !prev) }}     >X</p>
-
-              <div className='userInfoInsideDiv' >
-
-                <div className='AcNoOuterDiv' >
-                  <h3 className='AcNo' >Account Number:</h3>
-
-                </div>
-
-                <div className='AcIfsc' >
-
-
-                  <h3 className='AcNo' >  Ifsc Code :  </h3>
-
-                </div>
-
-
-                <div className='AcBranch'>
-
-                  <h3 className='AcNo'   > Branch : </h3>
-                </div>
-
-
-
-              </div>
-
-            </div>
-
-
-          </>
-        ) : (
-          <>
-
-
-
-          </>
-        )
-
-      }
-
-
-
-
-
-      {
-
-
-        trans ? (
-          <>
-
-            <div className='trnsOuter'>
-
-
-              <div className='trnsInner' >
-
-                <Table striped bordered hover>
-                  <thead>
-                    <tr>
-                      <th>Tr Id</th>
-                      <th>Amount</th>
-                      <th>Credit</th>
-                      <th>Debit</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td colSpan={2}>Larry the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
-                  </tbody>
-                </Table>
-
-
-              </div>
-
-
-
-            </div>
-
-          </>
-        )
-          : (
-
-            <>
-
-
-
-
-            </>
-          )
-
-
-      }
-
-
-
-      {
-
-
-
-        trf ? (<>
-
-
-
-          <div className="trfouterDiv">
-
-
-
-
-            <p className='crossBoxpara' onClick={() => { setTrf(prev => !prev) }}  > x  </p>
-
-
-            <div className="trfInnerDiv">
-
-
-
-              <h3>Transfer Money</h3>
-
-              <label htmlFor="">Enter Account Number : </label>
-              <input type="text" placeholder='Enter Account Number' onChange={TrfValueHandle} name='AcNo' />
-
-
-              <label htmlFor="">Enter Amount : </label>
-
-              <input type="text" placeholder='Enter Amount' name="Amount" onChange={TrfValueHandle} />
-
-
-              <button onClick={PayHandle}    >Pay</button>
-
-
-
-            </div>
-
-          </div>
-
-
-        </>) : (
-
-          <>
-
-
-          </>
-        )
-
-
-
-
-      }
+      <Outlet />
 
 
 

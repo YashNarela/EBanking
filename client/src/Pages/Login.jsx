@@ -3,7 +3,10 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 const Login = () => {
+
+  const navigate = useNavigate()
 
   const [inp, setInp] = useState({})
 
@@ -15,6 +18,9 @@ const Login = () => {
 
     setInp((prev) => ({ ...prev, [name]: value }))
 
+    console.log(inp);
+
+
 
   }
 
@@ -25,15 +31,30 @@ const Login = () => {
     console.log(inp);
 
 
-    let api =`http://localhost:8000/bank/`
+    let api = `http://localhost:8000/bank/login`
+
+
 
     try {
-      
+
+
+
+      let dataRsp = await axios.post(api, inp);
+
+
+      localStorage.setItem("token", JSON.stringify(dataRsp.data.token))
+
+
+      navigate("/userpage")
+
+
 
     } catch (error) {
-      
+
+      console.log(error);
+
     }
-  
+
 
 
 
@@ -45,7 +66,7 @@ const Login = () => {
   return (
     <>
 
-      <Form className='loginForm'  onSubmit={handleSubmit} >
+      <Form className='loginForm' onSubmit={handleSubmit} >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>User Name</Form.Label>
           <Form.Control type="text" placeholder="Enter UserName" name='email' onChange={handleInput} />

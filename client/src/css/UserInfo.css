@@ -1,0 +1,32 @@
+.UserOuterDiv {
+  width: 47%;
+  background-color: aliceblue;
+
+  position: relative;
+  top: -230px;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 40px;
+}
+
+.flexi{
+
+    display: flex;
+}
+
+@media screen and (max-width:1239px) {
+    
+.UserOuterDiv{
+
+    width: 60%;
+}
+
+}
+@media screen and (max-width:590px) {
+    
+.UserOuterDiv{
+
+    width: 80%;
+}
+
+}

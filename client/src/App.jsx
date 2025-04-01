@@ -11,6 +11,13 @@ import Logout from './Pages/Logout';
 import Register from './Pages/Register';
 import AccountType from './Pages/AccountType';
 import PageAfterLogin from './Pages/MainPage';
+import BalanceCheckPin from './Pages/BalanceCheckPin';
+import BalanceCard from './Pages/BalanceCard';
+import AccountDetails from './Pages/AccountDetails';
+import Transcition from './Pages/Transcition';
+import Transfer from './Pages/Transfer';
+import AddMoeny from './Pages/AddMoeny';
+import UserInfoPage from './Pages/UserInfoPage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -34,7 +41,19 @@ function App() {
             <Route path='register' element={<Register />} />
             <Route path='accounttype' element={<AccountType />} />
 
-            <Route path='userpage' element={<PageAfterLogin />} />
+            <Route path='userpage' element={<PageAfterLogin />} >
+
+
+              <Route path='balance' element={<BalanceCheckPin />} />
+              <Route path='pin' element={<BalanceCard />} />
+              <Route path='account' element={<AccountDetails />} />
+              <Route path='trans' element={<Transcition />} />
+              <Route path='transfer' element={<Transfer />} />
+              <Route path='addmoney' element={<AddMoeny />} />
+              <Route path='userinfo' element={<UserInfoPage />} />
+
+
+            </Route>
 
 
           </Route>

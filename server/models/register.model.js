@@ -1,9 +1,27 @@
 const mongoose = require("mongoose");
 
-
-
 const schema = new mongoose.Schema(
   {
+    acno: {
+      type: String,
+    },
+    trans: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "trans",
+      },
+    ],
+    balance: {
+      type: Number,
+      default: 0,
+    },
+    ifsc: {
+      type: String,
+    },
+    pin: {
+      type: String,
+    },
+
     email: {
       type: String,
       require: true,
@@ -43,8 +61,5 @@ const schema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
-
- 
 
 module.exports = mongoose.model("register", schema);
