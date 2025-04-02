@@ -9,7 +9,7 @@ require("dotenv").config();
 
 const AddMoney = async (req, res) => {
   try {
-    console.log(req.body);
+  
 
     const { myAc, myAmount,status } = req.body;
 
@@ -41,8 +41,7 @@ const AddMoney = async (req, res) => {
       }
     ).populate("trans")
 
-    console.log(rsp);
-
+  
     res.send({ msg: "ok", objdata: rsp });
   } catch (error) {
     console.log(error);

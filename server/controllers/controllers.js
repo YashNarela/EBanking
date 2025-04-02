@@ -22,7 +22,7 @@ const userRegistration = async (req, res) => {
       lastname,
       gender,
     } = req.body;
-    console.log(req.body);
+   
 
     if (
       (!frstname,
