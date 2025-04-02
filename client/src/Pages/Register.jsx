@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 import { Await, useNavigate } from "react-router"
 
-import liberty from "../../public/libertyimage.jpg"
+import liberty from "../assets/an.webp"
 
 import axios from "axios"
 const Register = () => {
@@ -45,7 +45,11 @@ const Register = () => {
 
         setBgclr(false)
         e.preventDefault()
-        let api = `http://localhost:8000/bank/register`
+
+        const baseUrl = import.meta.env.VITE_BASE_URL;
+
+        let api = `${baseUrl}/bank/register`
+     
 
 
         try {
@@ -88,7 +92,7 @@ const Register = () => {
                 bgclr ?
 
                     <div>
-                        <Form className='CardForm' onSubmit={handleSubmit} style={{ backgroundImage: `url("/public/an.webp")`, backgroundSize: "cover", backgroundPosition: "center", width:"70%", margin:"auto", padding:"2rem" ,borderRadius:"20px"}}  >
+                        <Form className='CardForm' onSubmit={handleSubmit} style={{ backgroundImage: `url(${liberty})`, backgroundSize: "cover", backgroundPosition: "center", width:"70%", margin:"auto", padding:"2rem" ,borderRadius:"20px"}}  >
 
 
 

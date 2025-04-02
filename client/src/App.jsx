@@ -37,7 +37,7 @@ function App() {
             <Route path='insert' element={<Insert />} />
             <Route path='display' element={<Display />} />
             <Route path='login' element={<Login />} />
-            <Route path='logout' element={<Logout />} />
+            <Route path='logout' element={<Login />} />
             <Route path='register' element={<Register />} />
             <Route path='accounttype' element={<AccountType />} />
 

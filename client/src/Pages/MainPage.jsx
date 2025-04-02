@@ -59,8 +59,9 @@ const PageAfterLogin = () => {
 
 
 
-      let api = `http://localhost:8000/bank/auth/?token=${token}`
+      const baseUrl = import.meta.env.VITE_BASE_URL;
 
+      let api = `${baseUrl}/bank/auth/?token=${token}`
 
       let rspdata = await axios.post(api, null, { headers: { "token": token } })
 
@@ -173,11 +174,6 @@ const PageAfterLogin = () => {
             <h4 className='iconBoxH4' >Account Details</h4>
           </div>
 
-
-        </div>
-
-        <div className='iconFlexCol' >
-
           <div className='iconFullBox' >
             <FaRupeeSign onClick={() => {
 
@@ -186,6 +182,13 @@ const PageAfterLogin = () => {
             <h4 className='iconBoxH4' >  transaction History</h4>
 
           </div>
+
+
+        </div>
+
+        <div className='iconFlexCol' >
+
+ 
           <div className='iconFullBox' >
             <TbTransfer onClick={() => { navigate('/userpage/transfer') }} className=' iconboxSIzeIcon' />
             <h4 className='iconBoxH4' > transfer Money </h4>

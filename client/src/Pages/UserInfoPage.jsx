@@ -75,7 +75,14 @@ const UserInfoPage = () => {
         <>
 
 
+
             <div className="UserOuterDiv">
+
+                <div className="cancelBoxSet" >
+                    <p className='crossBoxpara' style={{borderRadius:"50%"}}  onClick={() => { navigate('/userpage') }}  > x  </p>
+                </div>
+
+             
 
 
 

@@ -12,9 +12,11 @@ import { IoIosArrowDown } from "react-icons/io";
 import Navheader from './Navheader';
 
 
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router"
 import { useState } from 'react';
 const TopNavbar = () => {
+
+    const navigate = useNavigate()
 
     let expand = false;
 
@@ -24,14 +26,17 @@ const TopNavbar = () => {
     const handleHover = async () => {
 
 
-        setHoverEffect((prev)=>!prev)
-
-
-   
-
-
+        setHoverEffect((prev) => !prev)
     }
 
+
+    const Logout = async () => {
+
+        localStorage.clear()
+
+        navigate('login')
+
+    }
 
     return (
         <>
@@ -42,13 +47,13 @@ const TopNavbar = () => {
                     <Navbar.Brand href="#"> <img src={logo} alt="" />  </Navbar.Brand>
 
                     <Nav className="me-auto  " id='navItemsLinks' >
-                        <Nav.Link id='home'  onMouseEnter={handleHover}   onMouseLeave={handleHover}  style={{ color: "#00417c", fontWeight: "800", lineHeight: "1.17", fontSize: "1.125rem" }} as={Link} to="home">Home <IoIosArrowDown /> 
+                        <Nav.Link id='home' onMouseEnter={handleHover} onMouseLeave={handleHover} style={{ color: "#00417c", fontWeight: "800", lineHeight: "1.17", fontSize: "1.125rem" }} as={Link} to="home">Home <IoIosArrowDown />
                             <Navheader hoverEffect={hoverEffect} />
                         </Nav.Link>
-                        <Nav.Link  id='bussiness'  style={{ color: "#00417c", fontWeight: "800", lineHeight: "1.17", fontSize: "1.125rem" }} as={Link} to="home" >Business  <IoIosArrowDown /> </Nav.Link>
-                        <Nav.Link id='invest'  style={{ color: "#00417c", fontWeight: "800", lineHeight: "1.17", fontSize: "1.125rem" }} as={Link} to="home" >Investing <IoIosArrowDown /> </Nav.Link>
-                        <Nav.Link  id='liberty' style={{ color: "#00417c", fontWeight: "800", lineHeight: "1.17", fontSize: "1.125rem" }} as={Link} to="home" >About Liberty Bank  <IoIosArrowDown /> </Nav.Link>
-                        <Nav.Link  id='navHeaderLoginBtn'  style={{ color: "#00417c", fontWeight: "800", lineHeight: "1.17", fontSize: "1.125rem" }} as={Link} to="home" >  <button className='navHeaderLoginBtn'  >Login</button>  </Nav.Link>
+                        <Nav.Link id='bussiness' style={{ color: "#00417c", fontWeight: "800", lineHeight: "1.17", fontSize: "1.125rem" }} as={Link} to="home" >Business  <IoIosArrowDown /> </Nav.Link>
+                        <Nav.Link id='invest' style={{ color: "#00417c", fontWeight: "800", lineHeight: "1.17", fontSize: "1.125rem" }} as={Link} to="home" >Investing <IoIosArrowDown /> </Nav.Link>
+                        <Nav.Link id='liberty' style={{ color: "#00417c", fontWeight: "800", lineHeight: "1.17", fontSize: "1.125rem" }} as={Link} to="home" >About Liberty Bank  <IoIosArrowDown /> </Nav.Link>
+                        <Nav.Link id='navHeaderLoginBtn' style={{ color: "#00417c", fontWeight: "800", lineHeight: "1.17", fontSize: "1.125rem" }} as={Link} to="login" >  <button className='navHeaderLoginBtn'  >Login</button>  </Nav.Link>
                     </Nav>
                     <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                     <Navbar.Offcanvas
@@ -58,16 +63,17 @@ const TopNavbar = () => {
                     >
                         <Offcanvas.Header closeButton>
                             <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                                Search
+
                             </Offcanvas.Title>
                         </Offcanvas.Header>
                         <Offcanvas.Body>
                             <Nav className="justify-content-end flex-grow-1 pe-3">
                                 <Nav.Link as={Link} to="/accounttype">Register</Nav.Link>
 
-                                <Nav.Link href="#action2">Login</Nav.Link>
+                                <Nav.Link as={Link} to="login" >Login</Nav.Link>
+                                <Nav.Link as={Link} to="logout" onClick={Logout}  >Logout</Nav.Link>
                                 <Nav.Link as={Link} to="/home" >Home</Nav.Link>
-                                <NavDropdown
+                                {/* <NavDropdown
                                     title="Users"
                                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                                 >
@@ -80,7 +86,7 @@ const TopNavbar = () => {
                                     <NavDropdown.Item href="#action5">
                                         Logout
                                     </NavDropdown.Item>
-                                </NavDropdown>
+                                </NavDropdown> */}
                             </Nav>
                             <Form className="d-flex">
                                 <Form.Control
@@ -97,7 +103,7 @@ const TopNavbar = () => {
             </Navbar>
 
 
-          
+
 
 
 

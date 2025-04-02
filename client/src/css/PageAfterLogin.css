@@ -238,6 +238,7 @@ header::before {
   display: flex;
   flex-direction: row;
   gap: 2rem;
+ 
 }
 
 .iconboxSIzeIcon {
@@ -423,7 +424,7 @@ header::before {
 .userInfoInsideDiv {
   padding: 3rem;
 
-  width: 520px;
+
   height: 220px;
   background: #fff;
 }
@@ -472,7 +473,7 @@ header::before {
 }
 
 .trfInnerDiv {
-  width: 430px;
+
   height: 320px;
   background: #fff;
 
@@ -481,4 +482,54 @@ header::before {
   justify-content: center;
   padding: 3rem;
   gap: 1rem;
+}
+
+
+
+
+@media screen and (max-width:555px) {
+  
+
+
+  .trfouterDiv{
+
+  left: 17%;
+  }
+
+  .iconFlexCol{
+
+    gap: 4px;
+  }
+
+}
+
+@media screen and (max-width:454px){
+
+
+ .iconFlexCol{
+
+    gap: 4px;
+    overflow-x: scroll;
+  }
+
+
+}
+
+
+
+
+@media screen and (max-width:1049px) {
+  
+
+
+  .trfouterDiv{
+
+    bottom: 2%;
+  }
+
+  .trnsOuter{
+    bottom: 2%;
+  }
+
+
 }

@@ -31,7 +31,10 @@ const Login = () => {
     console.log(inp);
 
 
-    let api = `http://localhost:8000/bank/login`
+
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+
+    let api = `${baseUrl}/bank/login`
 
 
 
