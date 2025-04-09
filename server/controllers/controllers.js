@@ -24,18 +24,19 @@ const userRegistration = async (req, res) => {
     } = req.body;
    
 
-    if (
-      (!frstname,
-      !email,
-      !govid,
-      !address,
-      !date,
-      !password,
-      !lastname,
-      !gender)
-    ) {
-      res.status(400).send("All Fields Are Required");
-    }
+if (
+  !frstname ||
+  !email ||
+  !govid ||
+  !address ||
+  !date ||
+  !password ||
+  !lastname ||
+  !gender
+) {
+  return res.status(400).send("All Fields Are Required");
+}
+
 
     let rspData = await registerModel.findOne({ email });
 
@@ -47,6 +48,7 @@ const userRegistration = async (req, res) => {
       let hashPassword
 
     try {
+      
 
       hashPassword = await bcrypt.hash(password, salt);
 

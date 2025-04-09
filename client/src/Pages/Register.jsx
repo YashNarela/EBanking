@@ -50,6 +50,8 @@ const Register = () => {
 
         let api = `${baseUrl}/bank/register`
      
+        console.log(api);
+        
 
 
         try {
